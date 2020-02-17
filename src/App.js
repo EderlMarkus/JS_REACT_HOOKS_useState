@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+export default () => {
+  const [value, setValue] = useState('Your Value');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h3>useState() Hook</h3>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Just a simple First-Time-Tryout-App where I'm playing around with
+          React Hooks. Here I'm managing the state inside of a functional
+          component with the useState() Hook.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>
+          <input
+            type="text"
+            onChange={e => setValue(e.target.value)}
+            placeholder={value}
+          ></input>
+        </p>
+        <br />
+        <p>Your Value is: {value}</p>
       </header>
     </div>
   );
-}
-
-export default App;
+};
